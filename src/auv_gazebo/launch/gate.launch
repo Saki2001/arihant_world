@@ -1,0 +1,12 @@
+<launch>
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  
+    <arg name="world_name" value="$(find auv_gazebo)/worlds/auv.world"/>
+  </include>
+  <param name="robot_description" textfile='$(find gate_urdf)/urdf/gate.urdf'/>
+  
+<!-- Spawning urdf in gazebo -->  
+      <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -x 0 -y 0 -z 2 -urdf -model gate" respawn="false" output="screen" />
+      
+</launch>
